@@ -1,0 +1,27 @@
+services:
+  server:
+    build: ./chat-server
+    environment:
+      - HOST=
+    command: python chat_server.py
+
+  client1:
+    build: ./chat-client
+    environment:
+      - SERVER=server
+    stdin_open: true
+    tty: true
+
+  client2:
+    build: ./chat-client
+    environment:
+      - SERVER=server
+    stdin_open: true
+    tty: true
+
+  client3:
+    build: ./chat-client
+    environment:
+      - SERVER=server
+    stdin_open: true
+    tty: true
